@@ -64,4 +64,5 @@ node_modules/
 # OS specific
 # Task files
 tasks.json
-tasks/ .cursor/mcp.json
+tasks/
+.cursor/mcp.json
