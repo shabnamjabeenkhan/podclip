@@ -1,0 +1,102 @@
+# Product Requirements Document (PRD): Database Setup & Best Practices
+
+## Introduction
+- This PRD covers the requirements and best practices for setting up and managing the database layer in Titan projects using Supabase (PostgreSQL) and Drizzle ORM.
+- It is intended for developers responsible for schema design, migrations, RLS, and data access patterns.
+
+## Objectives & Goals
+- Ensure safe, reliable, and scalable database setup for all environments (dev, prod)
+- Enforce best practices for schema design, migrations, and security
+- Provide clear workflows for common database operations
+
+## Core Concepts
+- **PostgreSQL**: Primary database engine (via Supabase)
+- **Drizzle ORM**: Type-safe database client for TypeScript
+- **Row Level Security (RLS)**: PostgreSQL feature for row access control
+- **Migrations**: Version-controlled schema changes
+
+## Environment Types
+- **Development**: Safe for experimentation, can be reset
+- **Production**: Contains real user data, changes must be tested in dev first
+
+## Initial Setup Requirements
+- After project initialization, use the agreed schema to create initial tables
+- Run database initialization script:
+  - `bun run db:init`
+- Optionally seed the database with test data
+- Verify setup with:
+  - `bun run db:studio`
+
+## Data Access Patterns
+- **Direct Drizzle (Server-Side)**
+  - Use for server components, form submissions, API routes
+  - Fastest, type-safe
+- **React Query + Server Actions**
+  - Use for interactive UIs needing loading states/caching
+  - Combines server actions with client-side React Query
+- **Supabase Client (Client-Side)**
+  - Use for real-time features, client-side auth, file uploads
+  - Enforces RLS, enables subscriptions
+
+## Decision Tree for Data Access
+- Is it server-side? Use Direct Drizzle
+- Need loading states/caching? Use React Query + Server Actions
+- Need real-time/auth? Use Supabase Client
+
+## Schema Design Requirements
+- Organize tables by domain in separate files
+- Use UUID or serial for IDs
+- Add created/updated timestamps to all tables
+- Create indexes for frequently queried columns
+- Define relationships with references
+- Use enums for fixed values
+- Add appropriate constraints
+
+## Common Query Patterns
+- Select, insert, update, delete using Drizzle ORM
+- Example code snippets provided in documentation
+
+## Row Level Security (RLS)
+- Define RLS policies in `db/rls.sql`
+- Example: Users can only access their own data
+- Example: Public read, authenticated write for posts
+
+## Authorization in Server Actions
+- Always add authorization checks in server actions before DB operations
+
+## Migrations Workflow
+- Create/modify schema in `db/schema/`
+- Generate migrations: `bun run db:generate`
+- Apply RLS: `bun run db:rls`
+- Push migrations: `bun run db:push`
+- Test changes thoroughly
+
+## Safe Dev-to-Production Workflow
+- Always backup before applying changes to production
+- Use Supabase CLI or Drizzle config for production deployments
+
+## Command Cheatsheet
+- `bun run db:generate` – Generate migrations
+- `bun run db:push` – Apply migrations
+- `bun run db:studio` – Open database studio
+- `bun run db:rls` – Apply RLS policies
+- `bun run db:init` – Initialize database
+- `bun run db:seed` – Seed database
+- `bun run db:drop` – Drop all tables
+
+## Best Practices
+- Use Direct Drizzle for server actions
+- Use React Query for client-side state
+- Always add authorization checks
+- Organize schema by domain
+- Add indexes, constraints, timestamps
+- Define comprehensive RLS policies
+- Use least privilege principle
+- Use React Query caching
+- Use transactions for related operations
+
+## Common Scenarios
+- Adding a new table: edit schema, generate/apply migrations, add/apply RLS
+- Modifying a table: edit schema, generate/apply migrations
+- Iterative schema development: reset for big changes, incremental migrations for small changes
+- Troubleshooting: reset/init, check state, drop tables, regenerate/apply migrations, apply RLS, seed data 
