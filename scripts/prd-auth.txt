@@ -1,0 +1,59 @@
+# Authentication System PRD for Titan (Clerk Integration)
+
+## Overview
+Implement user authentication using Clerk in a Titan-based Next.js app. The system must support both local development and production environments, synchronize user data with Supabase, and handle authentication events via webhooks.
+
+## Requirements
+
+### 1. Clerk Integration
+- Integrate Clerk for user authentication (sign up, login, profile).
+- Use the existing Clerk version in the boilerplate; do not upgrade unless following Clerk's migration guide.
+
+### 2. Webhook Handling
+- Ensure a webhook handler exists at `/api/auth/webhook` to process Clerk events.
+- The webhook must handle `user.created` and `user.updated` events.
+- On these events, update or insert user records in the Supabase `users` table.
+
+### 3. Local Development
+- Enable authentication by setting `config.auth.enabled = true` in `config.ts`.
+- Use ngrok to expose the local server for Clerk webhooks.
+- Document the process for creating a Clerk webhook endpoint pointing to `[ngrok-url]/api/auth/webhook` for `user.created` and `user.updated` events.
+
+### 4. Production Configuration
+- Create a production Clerk application.
+- Set up a webhook endpoint at `https://[production-domain]/api/auth/webhook` for `user.created` and `user.updated` events.
+- Configure Google Auth as a provider (optional, but recommended).
+- Support custom domain configuration in Clerk.
+
+### 5. Environment Variables
+- Use the following environment variables for Clerk integration:
+  - `CLERK_SECRET_KEY`
+  - `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`
+  - `CLERK_WEBHOOK_SECRET`
+- Document the process for setting these variables in both local and production environments (e.g., Vercel).
+
+### 6. User Data Synchronization
+- When a user signs up or updates their profile in Clerk, ensure the webhook updates the corresponding user record in Supabase.
+- User fields to sync: `id`, `email`, `name`, `image_url`, and any other relevant profile fields.
+
+### 7. Testing
+- Document how to test the authentication flow locally:
+  - Start the app with `bun run dev`.
+  - Sign up as a new user.
+  - Verify the user appears in Clerk and in the Supabase `users` table.
+
+### 8. Security & Best Practices
+- Never commit secret keys to version control.
+- Do not upgrade Clerk dependencies unless following the official migration guide.
+- Ensure webhooks are protected using the `CLERK_WEBHOOK_SECRET`.
+
+## Out of Scope
+- Social login providers other than Google (can be added later).
+- Custom user profile fields beyond Clerk defaults.
+
+## Acceptance Criteria
+- Users can sign up, log in, and update their profile using Clerk.
+- Clerk webhooks trigger and update the Supabase `users` table.
+- The system works in both local and production environments.
+- All secrets are managed via environment variables.
+- Documentation exists for both local and production setup. 

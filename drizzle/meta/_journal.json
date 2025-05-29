@@ -8,6 +8,41 @@
       "when": 1748292150747,
       "tag": "0000_robust_squirrel_girl",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1748477567739,
+      "tag": "0001_big_barracuda",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1748478493733,
+      "tag": "0002_narrow_black_knight",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1748479165668,
+      "tag": "0003_sloppy_mockingbird",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1748479327314,
+      "tag": "0004_lush_christian_walker",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1748479413943,
+      "tag": "0005_grey_roxanne_simpson",
+      "breakpoints": true
     }
   ]
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { SignUpButton } from "@clerk/nextjs";
 
 const HowItWorks = () => {
   const steps = [
@@ -61,9 +62,11 @@ const HowItWorks = () => {
               </p>
             </div>
             <div className="flex-shrink-0">
+            <SignUpButton mode="modal">
               <button className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3 rounded-lg font-medium transition-colors">
                 Get Started
               </button>
+              </SignUpButton>
             </div>
           </div>
         </div>

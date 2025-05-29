@@ -5,10 +5,9 @@ const Pricing = () => {
   const monthlyFeatures = [
     "5 episodes per day",
     "60-day storage",
-    "10-25 minute summaries",
+    "10-40 minute summaries",
     "Original voice summaries",
     "Written summaries and highlights",
-    "Spotify integration",
     "MP3 upload capability",
     "Mobile access"
   ];
@@ -19,7 +18,6 @@ const Pricing = () => {
     "10-40 minute summaries",
     "Original voice summaries",
     "Written summaries and highlights",
-    "Spotify integration",
     "MP3 upload capability",
     "Mobile access",
     "One-time payment"

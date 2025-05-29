@@ -7,6 +7,7 @@ export const users = pgTable('user', {
   email: varchar('email').unique().notNull(),
   firstName: text('first_name'),
   lastName: text('last_name'),
+  phoneNumber: text('phone_number'),
   gender: text('gender'),
   profileImageUrl: text('profile_image_url'),
   userId: varchar('user_id').unique().notNull().$defaultFn(() => createId()),

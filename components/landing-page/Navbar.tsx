@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
+import { SignUpButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,7 +60,11 @@ const Navbar = () => {
           <a href="#pricing" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-foreground hover:bg-slate-700">Pricing</a>
           <a href="#how-it-works" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-foreground hover:bg-slate-700">How It Works</a>
           <a href="#contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-foreground hover:bg-slate-700">Contact</a>
-          <Button className="w-full mt-2 bg-blue-600 hover:bg-blue-700 text-white">Get Started</Button>
+          <SignUpButton mode="modal">
+  <Button className="w-full mt-2 bg-blue-600 hover:bg-blue-700 text-white">
+    Get Started
+  </Button>
+</SignUpButton>
         </div>
       </div>
     </nav>
