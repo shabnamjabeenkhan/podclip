@@ -1,4 +1,4 @@
-import Dashboard from '@/podclip-landing-page/src/pages/dashboard';
+import Dashboard from '@/v0-ui/app/(dashboard)/dashboard/page';
 
 
 export default function V0PodclipUIPage() {
