@@ -57,7 +57,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
     <AuthWrapper>
       <html lang="en" suppressHydrationWarning className={`dark ${inter.variable} ${poppins.variable}`}>
         <head>
@@ -79,6 +78,5 @@ export default function RootLayout({
         </body>
       </html>
     </AuthWrapper>
-    </ClerkProvider>
   );
 }
