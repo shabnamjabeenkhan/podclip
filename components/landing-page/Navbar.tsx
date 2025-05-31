@@ -36,7 +36,9 @@ const Navbar = () => {
             <a href="#pricing" className="text-gray-300 hover:text-foreground font-medium">Pricing</a>
             <a href="#how-it-works" className="text-gray-300 hover:text-foreground font-medium">How It Works</a>
             <a href="#contact" className="text-gray-300 hover:text-foreground font-medium">Contact</a>
+            <SignUpButton mode="modal" fallbackRedirectUrl="/dashboard">
             <Button className="bg-blue-600 hover:bg-blue-700 text-white">Get Started</Button>
+            </SignUpButton>
           </div>
           
           {/* Mobile menu button */}
@@ -60,7 +62,7 @@ const Navbar = () => {
           <a href="#pricing" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-foreground hover:bg-slate-700">Pricing</a>
           <a href="#how-it-works" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-foreground hover:bg-slate-700">How It Works</a>
           <a href="#contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-foreground hover:bg-slate-700">Contact</a>
-          <SignUpButton mode="modal">
+          <SignUpButton mode="modal" fallbackRedirectUrl="/dashboard">
   <Button className="w-full mt-2 bg-blue-600 hover:bg-blue-700 text-white">
     Get Started
   </Button>

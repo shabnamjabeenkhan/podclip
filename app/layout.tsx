@@ -8,7 +8,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { validateConfig } from '@/lib/config-validator';
 import { Inter, Poppins } from 'next/font/google';
-
+import { ClerkProvider } from '@clerk/nextjs';
 // Validate config on app initialization
 validateConfig();
 
@@ -57,6 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+    <ClerkProvider>
     <AuthWrapper>
       <html lang="en" suppressHydrationWarning className={`dark ${inter.variable} ${poppins.variable}`}>
         <head>
@@ -78,5 +79,6 @@ export default function RootLayout({
         </body>
       </html>
     </AuthWrapper>
+    </ClerkProvider>
   );
 }

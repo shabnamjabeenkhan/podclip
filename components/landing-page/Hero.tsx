@@ -1,7 +1,6 @@
 'use client';
-
-import { Button } from '@/components/ui/button';
 import { SignUpButton } from "@clerk/nextjs";
+import { Button } from '@/components/ui/button';
 
 const AudioWave = () => {
   return (
@@ -38,7 +37,7 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <SignUpButton mode="modal">
+          <SignUpButton mode="modal">
             <Button 
               className="bg-blue-600 hover:bg-blue-700 text-white text-white px-8 py-6 text-lg font-medium rounded-lg"
               size="lg"
